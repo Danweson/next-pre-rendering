@@ -2,7 +2,7 @@ import useSWR from "swr"
 import Menu from "../components/menu"
 
 const fetcher =  async () => {
-    const response = await fetch('https://vercel.com/danweson/json-server-danson/dashboard')
+    const response = await fetch('https://json-server-danson.vercel.app/dashboard')
     const data = await response.json() 
     return data
  }

@@ -65,7 +65,7 @@ export async function getStaticProps(context){
     console.log(`Generating / Regenerating Product ${params.productId}  `)
 
     const response = await fetch(
-        `https://vercel.com/danweson/json-server-danson/products/${params.productId}`
+        `https://json-server-danson.vercel.app/products/${params.productId}`
         )
 
     const data = await response.json()

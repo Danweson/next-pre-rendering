@@ -27,7 +27,7 @@ export async function getStaticProps(){
 
   console.log("Generating / Regenerating ProductList at: ", Date.now())
 
-    const response = await fetch('https://vercel.com/danweson/json-server-danson/products')
+    const response = await fetch('https://json-server-danson.vercel.app/products')
     const data = await response.json()
     // console.log(response)
 
