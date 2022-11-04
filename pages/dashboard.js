@@ -10,7 +10,7 @@ useEffect(() => {
 
     async function fetchDataDashbordData() {
 
-        const response = await fetch('http://localhost:4000/dashboard')
+        const response = await fetch('https://vercel.com/danweson/json-server-danson/dashboard')
         const data = await response.json()
 
         console.log(data)

@@ -44,7 +44,7 @@ export async function getServerSideProps(context) {
     const {category}  = params
 
     const response = await fetch(
-        `http://localhost:4000/news?category=${category}`
+        `https://vercel.com/danweson/json-server-danson/news?category=${category}`
     )
 
     const data = await response.json()

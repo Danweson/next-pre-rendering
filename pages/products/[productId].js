@@ -25,7 +25,7 @@ export default Post
 
 export async function getStaticPaths(){
 
-    const response = await fetch('http://localhost:4000/products')
+    const response = await fetch('https://vercel.com/danweson/json-server-danson/products')
     const data = await response.json()
     console.log("Fall back")
 
@@ -65,7 +65,7 @@ export async function getStaticProps(context){
     console.log(`Generating / Regenerating Product ${params.productId}  `)
 
     const response = await fetch(
-        `http://localhost:4000/products/${params.productId}`
+        `https://vercel.com/danweson/json-server-danson/products/${params.productId}`
         )
 
     const data = await response.json()
