@@ -8,7 +8,16 @@ function EventList({ eventList }) {
     const router = useRouter()
 
     const fetchSportsEvents = async() => {
-        const response = await fetch(`https://json-server-danson.vercel.app/events?category=sports`)
+        const response = await fetch(
+            `https://json-server-danson.vercel.app/events?category=sports`,
+            {
+                headers: {
+                    Accept: 'application/json, text/plain, */*',
+                    'User-Agent': '*',
+                },
+            }
+        )
+        
         const data = await response.json()
         setEvents(data)
         router.push('events?category=sports', undefined, {shallow: true })

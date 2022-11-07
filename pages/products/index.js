@@ -27,14 +27,24 @@ export async function getStaticProps(){
 
   console.log("Generating / Regenerating ProductList at: ", Date.now())
 
-    const response = await fetch('https://json-server-danson.vercel.app/products')
-    const data = await response.json()
+    const response = await fetch(
+      'https://json-server-danson.vercel.app/products',
+      {
+        headers: {
+                Accept: 'application/json, text/plain, */*',
+                'User-Agent': '*',
+        },
+      }
+    )
+
+    //const data = await response.json()
+    const data = await response.json(JSON.stringify(response.products))
     // console.log(response)
 
     return {
       props: {
          products: data, 
       },
-      revalidate: 10
+      //revalidate: 10
     }
   }

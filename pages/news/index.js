@@ -28,10 +28,19 @@ function NewsArticleList({articles}){
 export default NewsArticleList
 
 export async function getServerSideProps() {
-    const response = await fetch("https://json-server-danson.vercel.app/news")
+    const response = await fetch(
+      "https://json-server-danson.vercel.app/news",
+      {
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'User-Agent': '*',
+        },
+      }  
+    )
+
     const data = await response.json()
 
-  console.log('Pre-rendering NewsArticleList')
+    console.log('Pre-rendering NewsArticleList')
 
     // console.log(data)
 

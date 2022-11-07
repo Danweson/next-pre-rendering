@@ -25,20 +25,20 @@ export default Post
 
 export async function getStaticPaths(){
 
-    const response = await fetch('https://vercel.com/danweson/json-server-danson/products')
+    const response = await fetch('https://json-server-danson.vercel.app/products')
     const data = await response.json()
     console.log("Fall back")
 
-    /* const paths = data.map((product) => {
+    const paths = data.map((product) => {
         return {
             params : {
                productId: `${product.id}`,
             },
         }
-    }) */
+    })
 
     return {
-        paths: [
+        /* paths: [
             {
                 params: { productId: '1' },
             },
@@ -48,12 +48,12 @@ export async function getStaticPaths(){
             {
                 params: { productId: '3' },
             },
-        ], 
-        // paths: paths,
+        ], */ 
+        paths: paths,
 
+        fallback: true,
         // fallback: false,
-        // fallback: false,
-        fallback: 'blocking',
+        //fallback: 'blocking',
     }
 }
 
@@ -65,8 +65,14 @@ export async function getStaticProps(context){
     console.log(`Generating / Regenerating Product ${params.productId}  `)
 
     const response = await fetch(
-        `https://json-server-danson.vercel.app/products/${params.productId}`
-        )
+        `https://json-server-danson.vercel.app/products/${params.productId}`,
+        {
+            headers: {
+                Accept: 'application/json, text/plain, */*',
+                'User-Agent': '*',
+            },
+        }
+    )
 
     const data = await response.json()
 

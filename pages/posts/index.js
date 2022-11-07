@@ -24,7 +24,16 @@ export default PostList
 
 export async function getStaticProps(){
     // const response = await fetch('https://dummyjson.com/users')
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const response = await fetch(
+      'https://jsonplaceholder.typicode.com/posts',
+      {
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'User-Agent': '*',
+        },
+      }
+    )
+
     const data = await response.json()
     // console.log(data)
 
@@ -33,4 +42,4 @@ export async function getStaticProps(){
          posts: data,
       },
     }
-  }
+}

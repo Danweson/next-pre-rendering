@@ -62,8 +62,14 @@ export async function getStaticProps(context){
     // const response = await fetch('https://dummyjson.com/users')
 
     const response = await fetch(
-        `https://jsonplaceholder.typicode.com/posts/${params.postId}`
-        )
+        `https://jsonplaceholder.typicode.com/posts/${params.postId}`,
+        {
+            headers: {
+                Accept: 'application/json, text/plain, */*',
+                'User-Agent': '*',
+            },
+        }
+    )
 
     const data = await response.json()
 

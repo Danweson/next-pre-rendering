@@ -2,7 +2,7 @@ import Link from "next/link";
 import Menu from "../components/menu";
 
 function Home() {
-  console.log("https://json-server-danson.vercel.app/products")
+  
   return (
     
     <>

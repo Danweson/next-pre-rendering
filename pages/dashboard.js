@@ -6,21 +6,30 @@ function Dashboard(){
     const [isLoading, setIsLoading] = useState(true)
     const [dashboardData, setDashboardData] = useState("null")
 
-useEffect(() => {
+    useEffect(() => {
 
-    async function fetchDataDashbordData() {
+        async function fetchDataDashbordData() {
 
-        const response = await fetch('https://json-server-danson.vercel.app/dashboard')
-        const data = await response.json()
+            const response = await fetch(
+                'https://json-server-danson.vercel.app/dashboard',
+                {
+                headers: {
+                        Accept: 'application/json, text/plain, */*',
+                        'User-Agent': '*',
+                    },
+                }
+            )
+            
+            const data = await response.json()
 
-        console.log(data)
+            console.log(data)
 
-        setDashboardData(data)
-        setIsLoading(false)
-    }
+            setDashboardData(data)
+            setIsLoading(false)
+        }
 
-    fetchDataDashbordData()
-}, [])
+        fetchDataDashbordData()
+    }, [])
 
     if (isLoading) {
         <h2>Loading...</h2>
